@@ -11,8 +11,16 @@ function App() {
 
     //this function is used to complete a todo
     const markTodo = index =>{
+      console.log("index: ",index);
       const newTodos = [...todos,];
       newTodos[index].isDone = true;
+      setTodos(newTodos);
+    }
+
+    // this function is used to delete a todo
+    const removeTodo = index =>{
+      const newTodos = [...todos];
+      newTodos.splice(index,1);
       setTodos(newTodos);
     }
 
@@ -36,7 +44,7 @@ function App() {
                   index={index}
                   todo={todo}
                   markTodo={markTodo}
-                  // removeTodo={removeTodo}
+                  removeTodo={removeTodo}
                   />
                 </Card.Body>
               </Card>
