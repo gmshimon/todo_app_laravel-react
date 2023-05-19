@@ -20,6 +20,17 @@ const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
     //update the todo
     const updateTodo = (obj)=>{
         console.log(obj)
+
+        fetch('http://127.0.0.1:8000/api/addtodo',{
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers:{
+                'Accept':'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
     }
 
     return (
