@@ -12,10 +12,12 @@ const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //open the modal
     const editButtonTodo = () => {
         handleShow();
     };
 
+    //update the todo
     const updateTodo = (obj)=>{
         console.log(obj)
     }

@@ -28,7 +28,7 @@ const FormTodo = ({ addTodo }) => {
                 />
             </Form.Group>
             <Button variant="primary my-3" type="submit">
-                Submit
+                Add
             </Button>
         </Form>
     );
