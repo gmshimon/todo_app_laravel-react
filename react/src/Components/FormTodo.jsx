@@ -27,7 +27,7 @@ const FormTodo = ({ addTodo }) => {
                     placeholder="Add new todo"
                 />
             </Form.Group>
-            <Button variant="primary mb-3" type="submit">
+            <Button variant="primary my-3" type="submit">
                 Submit
             </Button>
         </Form>

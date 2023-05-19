@@ -47,7 +47,7 @@ function App() {
           <FormTodo addTodo={addTodo} />
             {todos.map((todo,index) => (
                 // eslint-disable-next-line react/jsx-key
-                <Card>
+                <Card className="mb-2">
                 <Card.Body>
                   <Todo key={todo.id}
                   index={index}
