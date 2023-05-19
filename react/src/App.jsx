@@ -21,7 +21,7 @@ function App() {
     const markTodo = index =>{
       console.log("index: ",index);
       const newTodos = [...todos,];
-      newTodos[index].isDone = true;
+      newTodos[index].isDone = 1;
       setTodos(newTodos);
     }
 
@@ -30,6 +30,11 @@ function App() {
       const newTodos = [...todos];
       newTodos.splice(index,1);
       setTodos(newTodos);
+    }
+
+    const editTodo = index =>{
+      const filterTodo = todos.filter(todo =>todo.id == index+1)
+      console.log(index,filterTodo);
     }
 
     useEffect(() => {
@@ -54,6 +59,7 @@ function App() {
                   todo={todo}
                   markTodo={markTodo}
                   removeTodo={removeTodo}
+                  editTodo={editTodo}
                   />
                 </Card.Body>
               </Card>

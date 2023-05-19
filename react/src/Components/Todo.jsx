@@ -1,11 +1,25 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
-import { Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Col, Form, Modal, Row } from "react-bootstrap";
+import TodoModal from "./TodoModal";
 
 // eslint-disable-next-line react/prop-types
-const Todo = ({ todo, index, markTodo, removeTodo }) => {
-    console.log(todo);
+const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const editButtonTodo = () => {
+        handleShow();
+    };
+
+    const updateTodo = (obj)=>{
+        console.log(obj)
+    }
+
     return (
         <div className="todo">
             <span
@@ -14,6 +28,12 @@ const Todo = ({ todo, index, markTodo, removeTodo }) => {
                 {todo.text}
             </span>
             <div>
+                <Button
+                    variant="outline-warning"
+                    onClick={() => editButtonTodo(index)}
+                >
+                    Edit
+                </Button>{" "}
                 <Button
                     variant="outline-success"
                     onClick={() => markTodo(index)}
@@ -27,6 +47,7 @@ const Todo = ({ todo, index, markTodo, removeTodo }) => {
                     ✕
                 </Button>
             </div>
+            <TodoModal  todo={todo} show={show} handleClose={handleClose} handleShow={handleShow} updateTodo={updateTodo}/>
         </div>
     );
 };
