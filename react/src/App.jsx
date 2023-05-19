@@ -5,9 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // eslint-disable-next-line no-unused-vars
 import { Button, Card } from "react-bootstrap";
 import Todo from "./Components/Todo";
+import FormTodo from "./Components/FormTodo";
 
 function App() {
     const [todos, setTodos] = useState([]);
+    
+    // this function is used to add new todo items
+    const addTodo = text =>{
+      const newTodoObj = {text: text,isDone:0};
+      const newTodos = [...todos, newTodoObj];
+      setTodos(newTodos);
+    }
 
     //this function is used to complete a todo
     const markTodo = index =>{
@@ -36,6 +44,7 @@ function App() {
         <div className="app">
           <div className="container">
           <h1 className="text-center mb-4">Todo List</h1>
+          <FormTodo addTodo={addTodo} />
             {todos.map((todo,index) => (
                 // eslint-disable-next-line react/jsx-key
                 <Card>
