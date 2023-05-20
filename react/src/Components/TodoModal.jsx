@@ -9,7 +9,7 @@ const TodoModal = ({todo,show,handleShow,handleClose,updateTodo}) => {
     const [done,setDone] = useState(todo.isDone)
 
     const handleSubmit = (e) => {
-        updateTodo({text,done})
+        updateTodo({id:todo.id,text:text,isDone:parseInt(done)})
         handleClose();
     }
 

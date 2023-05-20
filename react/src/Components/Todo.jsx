@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import TodoModal from "./TodoModal";
+import updateTodoApiCall from "../hooks/updateTodoApiCall";
 
 // eslint-disable-next-line react/prop-types
 const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
@@ -19,18 +20,9 @@ const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
 
     //update the todo
     const updateTodo = (obj)=>{
-        console.log(obj)
+        console.log(obj);
+        updateTodoApiCall(obj)
 
-        fetch('http://127.0.0.1:8000/api/addtodo',{
-            method: 'POST',
-            body: JSON.stringify(obj),
-            headers:{
-                'Accept':'application/json',
-                'Content-type': 'application/json'
-            }
-        })
-        .then(res=>res.json())
-        .then(data=>console.log(data))
     }
 
     return (
