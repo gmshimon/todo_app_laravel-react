@@ -16,6 +16,7 @@ class Todo extends Controller
         $todoList = new todo_list;
         $todoList->text = $request->text;
         $todoList->isDone = $request->isDone;
+        $todoList->user = $request->user;
         $todoList->save();
 
         return $request->input();
@@ -31,6 +32,7 @@ class Todo extends Controller
         $data = todo_list::find($req->id);
         $data->text = $req->text;
         $data->isDone = $req->isDone;
+        $data->user = $req->user;
         $data->save();
         return $data;
     }
