@@ -13,8 +13,19 @@ function App() {
     // this function is used to add new todo items
     const addTodo = text =>{
       const newTodoObj = {text: text,isDone:0};
-      const newTodos = [...todos, newTodoObj];
-      setTodos(newTodos);
+
+      // call the api to add todo items in the database
+      fetch('http://127.0.0.1:8000/api/addtodo',{
+            method: 'POST',
+            body: JSON.stringify(newTodoObj),
+            headers:{
+                'Accept':'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+
     }
 
     //this function is used to complete a todo
@@ -37,14 +48,13 @@ function App() {
       console.log(index,filterTodo);
     }
 
+
+    //fetch the data
     useEffect(() => {
         fetch("http://127.0.0.1:8000/getTodo")
             .then((res) => res.json())
             .then((data) => setTodos(data));
-    }, []);
-
-    console.log(todos);
-
+    }, [todos]);
     return (
         <div className="app">
           <div className="container">
