@@ -55,7 +55,7 @@ const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
                 </Button>{" "}
                 <Button
                     variant="outline-danger"
-                    onClick={() => removeTodo(index)}
+                    onClick={() => removeTodo(todo.id)}
                 >
                     ✕
                 </Button>

@@ -37,23 +37,21 @@ function App() {
     }
 
     // this function is used to delete a todo
-    const removeTodo = index =>{
-      // const newTodos = [...todos];
-      // newTodos.splice(index,1);
-      // setTodos(newTodos);
-
+    const removeTodo = id =>{
       //call the api to delete the todo from the database
-      fetch (`http://127.0.0.1:8000/api/deleteTodo/${index+1}`)
+      fetch (`http://127.0.0.1:8000/api/deleteTodo/${id}`)
       .then(res=>res.json())
-      .then(data=>console.log(data))
+      .then(data=>{
+        if(data){
+          window.alert(`${data?.text} has been successfully deleted`);
+        }
+      })
     }
 
     const editTodo = index =>{
       const filterTodo = todos.filter(todo =>todo.id == index+1)
       console.log(index,filterTodo);
     }
-
-
     //fetch the data
     useEffect(() => {
         fetch("http://127.0.0.1:8000/getTodo")
