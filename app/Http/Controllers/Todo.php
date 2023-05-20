@@ -19,7 +19,7 @@ class Todo extends Controller
         $todoList->user = $request->user;
         $todoList->save();
 
-        return $request->input();
+        return $todoList;
     }
 
     function removeTodo($id){

@@ -12,13 +12,11 @@ function App() {
     const [todos, setTodos] = useState([]);
     
     // this function is used to add new todo items
-    const addTodo = text =>{
-      const newTodoObj = {text: text,isDone:0};
-
+    const addTodo = item =>{
       // call the api to add todo items in the database
       fetch('http://127.0.0.1:8000/api/addtodo',{
             method: 'POST',
-            body: JSON.stringify(newTodoObj),
+            body: JSON.stringify(item),
             headers:{
                 'Accept':'application/json',
                 'Content-type': 'application/json'
