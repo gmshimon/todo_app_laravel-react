@@ -19,18 +19,22 @@ const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
     };
 
     //update the todo
-    const updateTodo = (obj)=>{
+    const updateTodo = (obj) => {
         console.log(obj);
-        updateTodoApiCall(obj)
-
-    }
+        updateTodoApiCall(obj);
+    };
 
     return (
         <div className="todo">
-            <span
-                style={{ textDecoration: todo?.isDone ? "line-through" : "" }}
-            >
-                {todo.text}
+            <span>
+                <span
+                    style={{
+                        textDecoration: todo?.isDone ? "line-through" : "",
+                    }}
+                >
+                    <p>{todo.text}</p>
+                </span>
+                <p>Assigned to: {todo.user}</p>
             </span>
             <div>
                 <Button
@@ -52,7 +56,13 @@ const Todo = ({ todo, index, markTodo, removeTodo, editTodo }) => {
                     ✕
                 </Button>
             </div>
-            <TodoModal  todo={todo} show={show} handleClose={handleClose} handleShow={handleShow} updateTodo={updateTodo}/>
+            <TodoModal
+                todo={todo}
+                show={show}
+                handleClose={handleClose}
+                handleShow={handleShow}
+                updateTodo={updateTodo}
+            />
         </div>
     );
 };
