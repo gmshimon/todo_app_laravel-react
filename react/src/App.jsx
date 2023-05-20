@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card } from "react-bootstrap";
 import Todo from "./Components/Todo";
 import FormTodo from "./Components/FormTodo";
+import updateTodoApiCall from "./hooks/updateTodoApiCall";
 
 function App() {
     const [todos, setTodos] = useState([]);
@@ -27,13 +28,12 @@ function App() {
         .then(data=>console.log(data))
 
     }
-
     //this function is used to complete a todo
     const markTodo = index =>{
       console.log("index: ",index);
       const newTodos = [...todos,];
       newTodos[index].isDone = 1;
-      setTodos(newTodos);
+      updateTodoApiCall(newTodos[index]) // make a hook component to update the todo item. Since same code is needed in Todo.jsx file
     }
 
     // this function is used to delete a todo

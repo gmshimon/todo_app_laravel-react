@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/addtodo',[Todo::class, 'addTodo']);
 Route::get('/deleteTodo/{id}',[Todo::class,'removeTodo']);
+Route::post('/updateTodo',[Todo::class, 'updateTodo']);

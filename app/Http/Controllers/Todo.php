@@ -26,4 +26,12 @@ class Todo extends Controller
         $data->delete();
         return $data;
     }
+
+    function updateTodo(Request $req){
+        $data = todo_list::find($req->id);
+        $data->text = $req->text;
+        $data->isDone = $req->isDone;
+        $data->save();
+        return $data;
+    }
 }
