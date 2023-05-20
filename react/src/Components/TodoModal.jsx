@@ -28,7 +28,7 @@ const TodoModal = ({todo,show,handleShow,handleClose,updateTodo}) => {
                                     type="text"
                                     placeholder="Todo Text"
                                     className="input"
-                                    value={text}
+                                    defaultValue={text}
                                     onChange={(e) => setText(e.target.value)}
                                 />
                             </Form.Group>
@@ -38,7 +38,7 @@ const TodoModal = ({todo,show,handleShow,handleClose,updateTodo}) => {
                                     type="text"
                                     placeholder="Todo User Name"
                                     className="input"
-                                    value={userName}
+                                    defaultValue={userName}
                                     onChange={(e) => setUserName(e.target.value)}
                                 />
                             </Form.Group>

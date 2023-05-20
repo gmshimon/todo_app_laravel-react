@@ -1,0 +1,2 @@
+It is a simple Todo app. For Frontend i used reactjs library and for backend laravel has been used with mysql database.
+User can add new todo to the database and delete it. Later User can edit the data of each database. Moreover, user can change the status of the todo when it has been completed.
