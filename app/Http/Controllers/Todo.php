@@ -20,4 +20,10 @@ class Todo extends Controller
 
         return $request->input();
     }
+
+    function removeTodo($id){
+        $data = todo_list::find($id);
+        $data->delete();
+        return $data;
+    }
 }

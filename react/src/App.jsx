@@ -38,9 +38,14 @@ function App() {
 
     // this function is used to delete a todo
     const removeTodo = index =>{
-      const newTodos = [...todos];
-      newTodos.splice(index,1);
-      setTodos(newTodos);
+      // const newTodos = [...todos];
+      // newTodos.splice(index,1);
+      // setTodos(newTodos);
+
+      //call the api to delete the todo from the database
+      fetch (`http://127.0.0.1:8000/api/deleteTodo/${index+1}`)
+      .then(res=>res.json())
+      .then(data=>console.log(data))
     }
 
     const editTodo = index =>{
