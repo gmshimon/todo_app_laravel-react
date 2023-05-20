@@ -7,9 +7,10 @@ const TodoModal = ({todo,show,handleShow,handleClose,updateTodo}) => {
 
     const [text,setText] = useState(todo.text)
     const [done,setDone] = useState(todo.isDone)
+    const [userName,setUserName] = useState(todo.user);
 
     const handleSubmit = (e) => {
-        updateTodo({id:todo.id,text:text,isDone:parseInt(done)})
+        updateTodo({id:todo.id,text:text,isDone:parseInt(done) ,user:userName})
         handleClose();
     }
 
@@ -29,6 +30,16 @@ const TodoModal = ({todo,show,handleShow,handleClose,updateTodo}) => {
                                     className="input"
                                     defaultValue={text}
                                     onChange={(e) => setText(e.target.value)}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Label>Assigned User</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Todo User Name"
+                                    className="input"
+                                    defaultValue={userName}
+                                    onChange={(e) => setUserName(e.target.value)}
                                 />
                             </Form.Group>
 
