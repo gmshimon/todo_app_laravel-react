@@ -22,23 +22,23 @@ const TodoModal = ({todo,show,handleShow,handleClose,updateTodo}) => {
                 <Modal.Body>
                     <Form >
                         <Row className="mb-3">
-                            <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Group as={Col} controlId="formGridText">
                                 <Form.Label>Todo Text</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Todo Text"
                                     className="input"
-                                    defaultValue={text}
+                                    value={text}
                                     onChange={(e) => setText(e.target.value)}
                                 />
                             </Form.Group>
-                            <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Group as={Col} controlId="formGridUser">
                                 <Form.Label>Assigned User</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Todo User Name"
                                     className="input"
-                                    defaultValue={userName}
+                                    value={userName}
                                     onChange={(e) => setUserName(e.target.value)}
                                 />
                             </Form.Group>
